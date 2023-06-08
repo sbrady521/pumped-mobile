@@ -7,7 +7,7 @@ export default function App() {
         source={{
           uri: 'https://pumped.vercel.app',
         }}
-        style={{ marginTop: 30 }} 
+        style={{marginTop: 45}} 
         javaScriptEnabled={true}
         domStorageEnabled={true}
         sharedCookiesEnabled={true}

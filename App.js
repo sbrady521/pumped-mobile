@@ -1,32 +1,39 @@
-import { StyleSheet } from 'react-native';
-import WebView from 'react-native-webview';
+import { useRef } from 'react'
+import { StyleSheet, View } from 'react-native';
+import { WebView } from 'react-native-webview';
 
 export default function App() {
+  const webviewRef = useRef(null)
   return (
-    <WebView
+      <WebView
+        ref={webviewRef}
         source={{
           uri: 'https://pumped.vercel.app',
         }}
         style={{marginTop: 45}} 
-        javaScriptEnabled={true}
-        domStorageEnabled={true}
-        sharedCookiesEnabled={true}
+        javaScriptEnabled
+        pullToRefreshEnabled
+        decelerationRate={'normal'}
+        domStorageEnabled
+        sharedCookiesEnabled
         originWhitelist={["*"]}
-        scalesPageToFit={true}
-        startInLoadingState={true}
+        scalesPageToFit
+        startInLoadingState
         mixedContentMode={"always"}
-        allowsInlineMediaPlayback={true}
-        allowsFullscreenVideo={true}
-        allowsBackForwardNavigationGestures={true}
+        allowsInlineMediaPlayback
+        allowsFullscreenVideo
+        allowsBackForwardNavigationGestures
         allowsLinkPreview={false}
         renderLoading={() => <></>}
-    />
+        onMessage={msg => console.log(msg)}
+      />
 
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 45,
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',

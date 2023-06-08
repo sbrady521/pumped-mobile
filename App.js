@@ -1,12 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import WebView from 'react-native-webview';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <WebView
+        source={{
+          uri: 'https://pumped.vercel.app',
+        }}
+        style={{ marginTop: 30 }} 
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        sharedCookiesEnabled={true}
+        originWhitelist={["*"]}
+        scalesPageToFit={true}
+        startInLoadingState={true}
+        mixedContentMode={"always"}
+        allowsInlineMediaPlayback={true}
+        allowsFullscreenVideo={true}
+        allowsBackForwardNavigationGestures={true}
+        allowsLinkPreview={false}
+        renderLoading={() => <></>}
+    />
+
   );
 }
 
